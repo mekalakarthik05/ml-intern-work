@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#444"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="520" fill="#ffffff"/>
+
+  <text x="500" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">
+    Text Summarization: Two Pipelines
+  </text>
+
+  <!-- Shared input -->
+  <rect x="400" y="55" width="200" height="45" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="500" y="82" text-anchor="middle" font-size="14" fill="#1a1a1a">Source Document(s)</text>
+
+  <line x1="470" y1="100" x2="270" y2="140" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="530" y1="100" x2="730" y2="140" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- EXTRACTIVE TRACK -->
+  <text x="270" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">EXTRACTIVE PATH</text>
+
+  <rect x="150" y="150" width="240" height="40" rx="8" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="270" y="175" text-anchor="middle" font-size="12">1. Sentence Segmentation</text>
+
+  <line x1="270" y1="190" x2="270" y2="215" stroke="#444" marker-end="url(#arrow)"/>
+  <rect x="150" y="215" width="240" height="40" rx="8" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="270" y="240" text-anchor="middle" font-size="12">2. Vectorize (TF-IDF / embeddings)</text>
+
+  <line x1="270" y1="255" x2="270" y2="280" stroke="#444" marker-end="url(#arrow)"/>
+  <rect x="150" y="280" width="240" height="40" rx="8" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="270" y="305" text-anchor="middle" font-size="12">3. Score (TF-IDF sum or TextRank)</text>
+
+  <line x1="270" y1="320" x2="270" y2="345" stroke="#444" marker-end="url(#arrow)"/>
+  <rect x="150" y="345" width="240" height="40" rx="8" fill="#e0f2fe" stroke="#0369a1"/>
+  <text x="270" y="370" text-anchor="middle" font-size="12">4. Select Top-K Sentences</text>
+
+  <!-- ABSTRACTIVE TRACK -->
+  <text x="730" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#b91c1c">ABSTRACTIVE PATH</text>
+
+  <rect x="610" y="150" width="240" height="40" rx="8" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="730" y="175" text-anchor="middle" font-size="12">1. Tokenize Input</text>
+
+  <line x1="730" y1="190" x2="730" y2="215" stroke="#444" marker-end="url(#arrow)"/>
+  <rect x="610" y="215" width="240" height="40" rx="8" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="730" y="240" text-anchor="middle" font-size="12">2. Encoder builds context vectors</text>
+
+  <line x1="730" y1="255" x2="730" y2="280" stroke="#444" marker-end="url(#arrow)"/>
+  <rect x="610" y="280" width="240" height="40" rx="8" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="730" y="305" text-anchor="middle" font-size="12">3. Decoder generates tokens (attn)</text>
+
+  <line x1="730" y1="320" x2="730" y2="345" stroke="#444" marker-end="url(#arrow)"/>
+  <rect x="610" y="345" width="240" height="40" rx="8" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="730" y="370" text-anchor="middle" font-size="12">4. Beam Search Decoding</text>
+
+  <!-- Convergence -->
+  <line x1="270" y1="385" x2="480" y2="430" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="730" y1="385" x2="520" y2="430" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="380" y="430" width="240" height="45" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+  <text x="500" y="457" text-anchor="middle" font-size="13" font-weight="bold" fill="#14532d">Final Summary Output</text>
+
+  <text x="500" y="500" text-anchor="middle" font-size="11" fill="#666">
+    Extractive selects existing sentences · Abstractive generates new text
+  </text>
+</svg>

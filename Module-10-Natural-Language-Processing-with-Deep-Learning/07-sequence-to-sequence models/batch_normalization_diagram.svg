@@ -1,0 +1,44 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="900" height="320" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">Batch Normalization Layer — Where It Sits in a Seq2Seq Block</text>
+
+  <!-- Pipeline boxes -->
+  <g font-size="13">
+    <rect x="30" y="120" width="120" height="60" rx="8" fill="#dbe9ff" stroke="#4C72B0" stroke-width="2"/>
+    <text x="90" y="155" text-anchor="middle">Linear / RNN
+      <tspan x="90" dy="14">cell output</tspan>
+    </text>
+
+    <rect x="220" y="120" width="150" height="60" rx="8" fill="#fff3cd" stroke="#e0a800" stroke-width="2"/>
+    <text x="295" y="148" text-anchor="middle" font-weight="bold">BatchNorm</text>
+    <text x="295" y="166" text-anchor="middle" font-size="11">normalize across batch</text>
+
+    <rect x="440" y="120" width="120" height="60" rx="8" fill="#e2d6f3" stroke="#8a5fc2" stroke-width="2"/>
+    <text x="500" y="155" text-anchor="middle">Activation
+      <tspan x="500" dy="14">(ReLU/Tanh)</tspan>
+    </text>
+
+    <rect x="630" y="120" width="150" height="60" rx="8" fill="#ffe0cc" stroke="#DD8452" stroke-width="2"/>
+    <text x="705" y="148" text-anchor="middle">Next Layer /</text>
+    <text x="705" y="166" text-anchor="middle">Decoder Step</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="150" y1="150" x2="218" y2="150" stroke="#888" stroke-width="2" marker-end="url(#arrow2)"/>
+  <line x1="370" y1="150" x2="438" y2="150" stroke="#888" stroke-width="2" marker-end="url(#arrow2)"/>
+  <line x1="560" y1="150" x2="628" y2="150" stroke="#888" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <!-- BatchNorm math box -->
+  <rect x="200" y="220" width="500" height="80" rx="8" fill="#f7f7f9" stroke="#ddd"/>
+  <text x="450" y="245" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Per-Feature Normalization (then learnable rescale)</text>
+  <text x="450" y="268" text-anchor="middle" font-size="13" fill="#444">x̂ = (x − μ_batch) / sqrt(σ²_batch + ε)</text>
+  <text x="450" y="288" text-anchor="middle" font-size="13" fill="#444">y = γ · x̂ + β   (γ, β are learned per feature)</text>
+
+  <text x="450" y="312" text-anchor="middle" font-size="11" fill="#777">μ_batch, σ²_batch computed across the mini-batch dimension at training time; running averages used at inference.</text>
+
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#888"/>
+    </marker>
+  </defs>
+</svg>
