@@ -18,7 +18,7 @@ This is exactly the problem that **attention** was invented to solve. Instead of
 
 ## 3. Mathematical Formulation
 
-**Core generative factorization (what the decoder is actually computing):**
+
 
 $$
 P(y_1, \dots, y_T \mid x_1, \dots, x_S) = \prod_{t=1}^{T} P(y_t \mid y_{<t}, x_{1:S})
