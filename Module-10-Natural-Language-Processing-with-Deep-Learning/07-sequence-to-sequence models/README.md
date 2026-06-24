@@ -20,8 +20,9 @@ This is exactly the problem that **attention** was invented to solve. Instead of
 
 **Core generative factorization (what the decoder is actually computing):**
 
-
-\[P(y_{1:T} \mid x_{1:S}) = \prod_{t=1}^{T} P(y_t \mid y_{1:t-1}, x_{1:S})\]
+```
+P(y1​,…,yT​∣x1​,…,xS​)=t=1∏T​P(yt​∣y<t​,x1:S​)
+```
 
 *Significance:* The output sequence isn't generated all at once — each token is predicted conditioned on everything generated so far AND the full input. This is what makes generation **autoregressive**: every decision depends on prior decisions.
 
